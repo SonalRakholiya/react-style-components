@@ -1,12 +1,20 @@
+import styled, { ThemeProvider } from "styled-components"
+import Button from './element/Button'
 export const InlineStyle = () => {
-    const buttonStyle = {
-        color: 'bule',
-        backgroundColor: 'chocolate'
+    const theme = {
+        primary: 'teal',
+        secondary: 'green',
+        alert: 'yellow',
+        font: 'sans-serif'
     }
+    const H1 = styled.h1`font-family:${(props) => props.theme.font}`
+
     return (
-        <div>
-            <h1 className="text-center">CSS Inline Style</h1>
-            <button style={buttonStyle}>CSS Style</button>
-        </div>
+        <ThemeProvider theme={theme}>
+            <div>
+                <H1 className="text-center">CSS Inline Style</H1>
+                <Button color="alert">CSS Style</Button>
+            </div>
+        </ThemeProvider>
     )
 }
